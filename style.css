@@ -1,0 +1,39 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.contents {
+    width: 50%;
+    border: 2px solid black;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 2px 3px;
+  }
+
+h2 {
+    text-align: center;
+}
+   
+#name,
+#domisili,
+#telp {
+    width: 95%;
+    font-size: 15px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: left;
+  }
+
+#submit {
+    padding: 8px;
+    border-radius: 3px;
+    background-color: lightsteelblue;
+}
+
+#notifikasi {
+  visibility: hidden;
+}

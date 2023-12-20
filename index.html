@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contents">
+        <h2>Isi data diri</h2>
+
+        <div class="form">
+            <form id="dataDiri">
+                <div class="form-element" id="fieldName">
+                    <label for="name">Name:</label><br>
+                    <input 
+                    type="text" 
+                    name="name" 
+                    id="name" 
+                    placeholder="masukkan nama anda" 
+                    maxlength="30"
+                    required
+                    >
+                    <br>
+                    <label id="notifikasi">Limit karakter: <span id="sisaKarakter"></span>
+                    </label>
+                </div><br>
+
+                <div class="form-element">
+                    <label for="domisili">Domisili:</label><br>
+                    <input type="text" name="domisili" id="domisili" placeholder="masukkan domisili anda" required><br>
+                </div><br>
+                
+                <div class="form-element">
+                    <label for="telp">Nomor Telepon:</label><br>
+                    <input type="text" name="telp" id="telp" placeholder="masukkan no.telepon anda" required><br>
+                </div><br>
+
+                <div class="form-element">
+                   <center><input type="submit" id="submit" value="Submit data"></center> 
+                </div>
+            </form>
+        </div>
+        <h3 id="message"></h3>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
