@@ -1,21 +1,31 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const maxLengthName = document.getElementById('name').maxLength;
-    document.getElementById('sisaKarakter').innerText = maxLengthName;
+    // const maxLengthName = document.getElementById('name').maxLength;
+    // document.getElementById('sisaKarakter').innerText = maxLengthName;
+    const inputName = document.getElementById('name');
+    const notifikasi = document.getElementById('notifikasi');
 
-    document.getElementById('name').addEventListener('input', function(){
+    // document.getElementById('name').addEventListener('input', function(){
+    inputName.addEventListener('input', function(){
         const jumlahKarakter = document.getElementById('name').value.length;
         const karakterMaksimal = document.getElementById('name').maxLength;
 
         const karakterUpdate = karakterMaksimal - jumlahKarakter;
-        document.getElementById('sisaKarakter').innerText = karakterUpdate.toString();
+        // document.getElementById('notifikasi').innerText = karakterUpdate.toString();
+        notifikasi.innerText = `Karakter ${jumlahKarakter}/${karakterMaksimal}`;
 
         if (karakterUpdate === 0) {
-            document.getElementById('sisaKarakter').innerText = 'Batas maksimal tercapai!';
-        } else if (karakterUpdate <= 5) {
+            document.getElementById('notifikasi').innerText = 'Batas maksimal tercapai!';
+        } else if (karakterUpdate < 5) {
             document.getElementById('notifikasi').style.color = 'red';
         } else {
             document.getElementById('notifikasi').style.color = 'black';
         }  
+
+        if (jumlahKarakter > karakterMaksimal) {
+            this.value = this.value.slice(0, karakterMaksimal);
+            // notifikasi.innerText = 'Batas maksimal tercapai!';
+            notifikasi.style.color = 'red';
+        }
     });
 
     document.getElementById('name').addEventListener('focus', function() {
