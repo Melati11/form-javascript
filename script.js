@@ -3,6 +3,9 @@ document.addEventListener('DOMContentLoaded', function() {
     // document.getElementById('sisaKarakter').innerText = maxLengthName;
     const inputName = document.getElementById('name');
     const notifikasi = document.getElementById('notifikasi');
+    const refreshBtn = document.getElementById('refresh');
+    const capcthaText = document.getElementById('capcthaText');
+    const capcthahaInput = document.getElementById('capcthaInput')
 
     // document.getElementById('name').addEventListener('input', function(){
     inputName.addEventListener('input', function(){
@@ -35,18 +38,40 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('name').addEventListener('blur', function(){
         document.getElementById('notifikasi').style.visibility = 'hidden';
     });
-});
 
-document.getElementById('capctha').addEventListener('change', function() {
-    const inputCapctha = document.getElementById('capctha').value;
-    const submitButton = document.getElementById('submit');
+    function generateCapctha() {
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        let capctha = '';
 
-    if (inputCapctha === 'PRNU') {
-        submitButton.removeAttribute('disabled');
-    } else {
-        submitButton.setAttribute('disabled', '');
+        //Generate random CAPTCHA text of length 6
+        for (let i = 0; i < 6; i++) {
+            const randomIndex = Math.floor(Math.random() * characters.length);
+            capctha += characters.charAt(randomIndex);
+        }
+        capcthaText.textContent = capctha;
     }
+
+    function refreshCaptcha() {
+        generateCapctha();
+        capcthahaInput.value = '';
+    }
+
+    refreshBtn.addEventListener('click', function(){
+        refreshCaptcha();
+    })
+    generateCapctha();
 });
+
+// document.getElementById('capctha').addEventListener('change', function() {
+//     const inputCapctha = document.getElementById('capctha').value;
+//     const submitButton = document.getElementById('submit');
+
+//     if (inputCapctha === 'PRNU') {
+//         submitButton.removeAttribute('disabled');
+//     } else {
+//         submitButton.setAttribute('disabled', '');
+//     }
+// });
 
 const submitAction = document.getElementById('dataDiri');
 
@@ -54,7 +79,7 @@ submitAction.addEventListener('submit', function(e) {
     const nama = document.getElementById('name').value;
     const domisili = document.getElementById('domisili').value;
     const telp = document.getElementById('telp').value;
-    const inputCapctha = document.getElementById('captcha').value;
+    // const inputCapctha = document.getElementById('captcha').value;
     const hiddenMessage = `Selamat ${nama}! Anda berdomisili di ${domisili} dengan nomor telepon ${telp} berhasil mengirim data!`
 
     if (inputCapctha === 'PRNU') {
