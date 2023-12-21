@@ -27,13 +27,32 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
+document.getElementById('capctha').addEventListener('change', function() {
+    const inputCapctha = document.getElementById('capctha').value;
+    const submitButton = document.getElementById('submit');
+
+    if (inputCapctha === 'PRNU') {
+        submitButton.removeAttribute('disabled');
+    } else {
+        submitButton.setAttribute('disabled', '');
+    }
+});
+
 const submitAction = document.getElementById('dataDiri');
 
 submitAction.addEventListener('submit', function(e) {
     const nama = document.getElementById('name').value;
     const domisili = document.getElementById('domisili').value;
     const telp = document.getElementById('telp').value;
+    const inputCapctha = document.getElementById('captcha').value;
     const hiddenMessage = `Selamat ${nama}! Anda berdomisili di ${domisili} dengan nomor telepon ${telp} berhasil mengirim data!`
+
+    if (inputCapctha === 'PRNU') {
+        alert('Capctha Sukses!');
+    } else {
+        alert('Captcha Belum Tepat');
+        document.getElementById('submit').setAttribute('disabled', '');
+    }
 
     document.getElementById('message').innerText = hiddenMessage;
     e.preventDefault();

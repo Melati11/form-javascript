@@ -20,7 +20,8 @@ h2 {
    
 #name,
 #domisili,
-#telp {
+#telp, 
+#capctha {
     width: 95%;
     font-size: 15px;
     border-radius: 5px;
