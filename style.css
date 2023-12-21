@@ -1,41 +1,64 @@
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: rgb(203, 221, 244);
 }
 
 .contents {
-    width: 50%;
-    border: 2px solid black;
-    padding: 15px;
-    border-radius: 5px;
-    box-shadow: 2px 3px;
-  }
+  width: 100%;
+  max-width: 70%;
+  margin: 20px auto; 
+  border: 2px solid black;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 4px 3px 5px 2px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
 
 h2 {
-    text-align: center;
+  text-align: center;
 }
-   
-#name,
-#domisili,
-#telp, 
-#capctha {
-    width: 95%;
-    font-size: 15px;
-    border-radius: 5px;
-    padding: 10px;
-    text-align: left;
-  }
+
+.form-element {
+  margin-bottom: 15px;
+}
+
+input[type="text"] {
+  width: 100%;
+  font-size: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box; 
+  margin-top: 10px;
+}
 
 #submit {
+  padding: 10px;
+  border-radius: 5px;
+  background-color: lightsteelblue;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  #submit {
     padding: 8px;
-    border-radius: 3px;
-    background-color: lightsteelblue;
+    font-size: 14px;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; 
 }
 
 #notifikasi {
-  visibility: hidden;
   color: grey;
+  font-size: 12px;
+  text-align: right;
 }
